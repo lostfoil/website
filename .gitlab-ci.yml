@@ -1,0 +1,51 @@
+variables:
+  # Project Deployemnt specific variables
+  LF_NAME: lf-front
+  LF_SUBDOMAIN: front.lf
+
+stages:
+  - build-local
+  - build
+  - deploy
+
+deploy-prod:
+  extends: .deploy
+  variables:
+    LF_ADDITIONAL_HOST: "beta.lostfoil.com"
+  only:
+    - master
+  environment:
+    name: production
+    url: https://$CI_ENVIRONMENT_SLUG.$LF_SUBDOMAIN.$KUBE_INGRESS_BASE_DOMAIN
+    on_stop: stop-prod
+
+stop-prod:
+  extends: .stop_deploy
+  only:
+    - master
+  environment:
+    name: production
+
+deploy-stg:
+  extends: .deploy
+  variables:
+    LF_ADDITIONAL_HOST: "dev.beta.lostfoil.com"
+  only:
+    - dev
+  environment:
+    name: staging
+    url: https://$CI_ENVIRONMENT_SLUG.$LF_SUBDOMAIN.$KUBE_INGRESS_BASE_DOMAIN
+    on_stop: stop-stg
+
+stop-stg:
+  extends: .stop_deploy
+  only:
+    - dev
+  environment:
+    name: staging
+
+include:
+  - project: 'ops/k8s'
+    file: 'Build.node.yml'
+  - project: 'ops/k8s'
+    file: 'Deploy.ci.yml'
