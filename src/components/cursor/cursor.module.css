@@ -1,0 +1,7 @@
+.cursor {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  /* background-color: black; */
+  backdrop-filter: invert(100%);
+}

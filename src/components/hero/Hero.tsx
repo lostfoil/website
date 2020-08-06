@@ -33,7 +33,7 @@ const Hero = () => {
       top: "-50rem",
     },
     top: "0rem",
-    config: config.wobbly,
+    config: { mass: 1, tension: 300, friction: 11 },
   });
   const dottedLoad = useSpring({
     from: {
@@ -42,7 +42,7 @@ const Hero = () => {
     },
     transform: `rotate(0deg)`,
     left: "-8rem",
-    config: config.wobbly,
+    config: { mass: 1, tension: 300, friction: 11 },
   });
 
   const SvgMan = useSpring({
@@ -52,6 +52,7 @@ const Hero = () => {
     },
     opacity: 1,
     bottom: "0rem",
+    config: { mass: 1, tension: 300, friction: 11 },
   });
 
   return (
