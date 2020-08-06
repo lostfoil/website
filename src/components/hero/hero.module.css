@@ -1,0 +1,90 @@
+.hero_parent {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+}
+.headings {
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero_image {
+  background-image: url("../../assets/images/hero.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 33.5rem;
+  padding-top: 20rem;
+  position: relative;
+  z-index: 1;
+}
+.h1 {
+  font-size: 2.5rem;
+}
+.p {
+  width: 100%;
+  opacity: 45%;
+  margin-top: 0px;
+}
+.triangle_left {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  width: 3rem;
+  height: auto;
+}
+.triangle_right {
+  position: absolute;
+  bottom: -4rem;
+  right: -3rem;
+  width: 3rem;
+  height: auto;
+}
+.triangle_right {
+  fill: #84d1dc;
+}
+.cube_left {
+  position: absolute;
+  top: 0px;
+  left: -14rem;
+  width: 2rem;
+  height: auto;
+}
+.dotted {
+  position: absolute;
+  bottom: -7rem;
+  /* left: -8rem; */
+  width: 27rem;
+  height: auto;
+}
+.cube_right {
+  position: absolute;
+  bottom: 5.5rem;
+  right: -8rem;
+  width: 2.5rem;
+  height: auto;
+}
+.cube_left_below {
+  position: absolute;
+  bottom: -14rem;
+  left: 2rem;
+  width: 2rem;
+  height: auto;
+}
+.cube_left_below rect {
+  fill: #e4a300;
+}
+.hero_svgs {
+  width: 100%;
+}

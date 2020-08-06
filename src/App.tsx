@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./App.module.css";
 
+import Home from "./views/home/home";
+
 function App() {
   return (
     <div className={styles.App}>
-      <h1 className={styles.h1}>LostFoil</h1>
+      <Home />
     </div>
   );
 }
