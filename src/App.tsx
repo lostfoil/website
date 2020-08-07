@@ -1,5 +1,5 @@
 import React from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring } from "react-spring";
 import styles from "./App.module.css";
 
 import Home from "./views/home/home";
