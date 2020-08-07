@@ -1,0 +1,48 @@
+.card_parent {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  height: 20rem;
+  color: white;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: relative;
+}
+.card_back_color {
+  height: 20rem;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 2;
+  overflow: hidden;
+}
+.h1 {
+  width: 20rem;
+  text-align: left;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 3;
+}
+.p {
+  text-align: left;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  width: 50rem;
+  position: relative;
+  z-index: 3;
+}
+.svg_container svg {
+  opacity: 0.5;
+}
+.svg_container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
