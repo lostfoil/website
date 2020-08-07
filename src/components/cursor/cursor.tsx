@@ -1,6 +1,7 @@
 import React from "react";
-import styles from "./cursor.module.css";
 import { animated } from "react-spring";
+import styles from "./cursor.module.css";
+
 
 //@ts-ignore
 const Cursor = ({ props }) => {
