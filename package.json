@@ -30,7 +30,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ],
     "*.css": [
@@ -65,5 +65,4 @@
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5"
   }
-
 }
