@@ -21,8 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix src/* --ext .js --ext .jsx && prettier --write \"src/**/*.css\"",
-    "lint:ci": "eslint src/* --ext .js --ext .jsx && prettier --check \"src/**/*.css\""
+    "lint": "eslint --fix src/* --ext .js --ext .jsx --ext .ts --ext .tsx && prettier --write \"src/**/*.css\"",
+    "lint:ci": "eslint src/* --ext .js --ext .jsx  --ext .ts --ext .tsx && prettier --check \"src/**/*.css\""
   },
   "husky": {
     "hooks": {
