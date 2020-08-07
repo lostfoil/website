@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-}
-
-.h1 {
-  font-size: 2em;
+  width: 100%;
+  overflow: hidden;
 }
