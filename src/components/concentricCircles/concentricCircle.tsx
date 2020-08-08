@@ -1,29 +1,31 @@
-import React from "react";
-import { useSpring, animated } from "react-spring";
+import React, { FC } from 'react';
+import { useSpring, animated } from 'react-spring';
 
-type componentProps = {
+type ConcentricCirclesProps = {
   size1: number;
   size2: number;
   color: string;
   styles: React.CSSProperties;
 };
-const ConcentricCircles = ({ size1, size2, color, styles }: componentProps) => {
-  const props = useSpring({
+
+const ConcentricCircles: FC<ConcentricCirclesProps> = ({ size1, size2, color, styles }) => {
+  const c1Props = useSpring({
     from: { strokeDashoffset: size1 * 60 },
     strokeDashoffset: 0,
     config: { duration: 3500 },
   });
-  const props2 = useSpring({
+  const c2Props = useSpring({
     from: { strokeDashoffset: size2 * 60 },
     strokeDashoffset: 0,
     config: { duration: 3500 },
   });
+
   return (
     <svg
       height={`${size1}rem`}
       width={`${size1}rem`}
       style={{
-        position: "absolute",
+        position: 'absolute',
         ...styles,
       }}
     >
@@ -36,7 +38,7 @@ const ConcentricCircles = ({ size1, size2, color, styles }: componentProps) => {
         fill="transparent"
         style={{
           strokeDasharray: `${size1 * 60}`,
-          strokeDashoffset: props.strokeDashoffset,
+          strokeDashoffset: c1Props.strokeDashoffset,
         }}
       />
       <animated.circle
@@ -48,7 +50,7 @@ const ConcentricCircles = ({ size1, size2, color, styles }: componentProps) => {
         fill="transparent"
         style={{
           strokeDasharray: `${size2 * 60}`,
-          strokeDashoffset: props2.strokeDashoffset,
+          strokeDashoffset: c2Props.strokeDashoffset,
         }}
       />
     </svg>

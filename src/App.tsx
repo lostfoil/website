@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSpring } from 'react-spring';
 import styles from './App.module.css';
 
@@ -6,7 +6,7 @@ import Home from './views/home/home';
 import Cursor from './components/cursor/cursor';
 import ConcentricCircles from './components/concentricCircles/concentricCircle';
 
-function App() {
+const App: FC = () => {
   const [props, set] = useSpring(() => ({ xy: [0, 0] }));
   return (
     <div className={styles.App} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: [x, y] })}>
@@ -26,6 +26,6 @@ function App() {
       />
     </div>
   );
-}
+};
 
 export default App;
