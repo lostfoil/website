@@ -29,7 +29,7 @@
   z-index: 1;
 }
 .h1 {
-  font-size: 2.5rem;
+  font-size: var(--homeH1);
 }
 .p {
   width: 100%;

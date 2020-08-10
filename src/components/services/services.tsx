@@ -111,7 +111,7 @@ const Services: FC = () => {
       width: active === i ? '50rem' : '4rem',
       alignSelf: active === i ? 'flex-start' : 'center',
       justifyContent: active === i ? `flex-start` : `center`,
-      fontSize: active === i ? '2rem' : '1rem',
+      fontSize: active === i ? '1.8rem' : '1rem',
       transform: active === i ? `rotate(-90deg)` : `rotate(-90deg)`,
       opacity: active === i ? 0 : 1,
     }))

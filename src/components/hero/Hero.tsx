@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { FC } from 'react';
 import { useSpring, animated, config } from 'react-spring';
 import styles from './hero.module.css';
@@ -40,7 +41,7 @@ const Hero: FC = () => {
     config: config.slow,
   });
 
-  const SvgMan = useSpring({
+  const svgMan = useSpring({
     from: { bottom: '-40rem', opacity: 0 },
     opacity: 1,
     bottom: '0rem',
@@ -91,7 +92,11 @@ const Hero: FC = () => {
           covered.
         </p>
       </animated.div>
-      <animated.div style={SvgMan} className={styles.hero_image} />
+      <animated.div
+        // @ts-ignore
+        style={svgMan}
+        className={styles.hero_image}
+      />
     </div>
   );
 };

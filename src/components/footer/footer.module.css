@@ -9,7 +9,7 @@
   color: white;
 }
 .upper {
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -25,12 +25,12 @@
   margin-top: 3rem;
 }
 .h1 {
-  font-size: 3rem;
+  font-size: var(--homeH1);
   margin-bottom: 0px;
   align-self: flex-start;
 }
 .p {
-  font-size: 2rem;
+  font-size: var(--footerP);
   align-self: flex-start;
   margin-top: 1rem;
 }
@@ -42,24 +42,38 @@
   opacity: 0.4;
 }
 .lower {
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 14rem;
 }
-.lower_left {
+.lower_left,
+.lower_right,
+.lower_right_upper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: flex-start;
 }
+.lower_left {
+  align-self: flex-end;
+}
+.lower_right {
+  align-self: flex-start;
+}
+.lower_right_upper {
+  margin-bottom: 2.5rem;
+}
 .address {
   text-align: left;
   opacity: 0.3;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
-.lower_left_ul {
+.lower_left_ul,
+.lower_right_ul,
+.lower_right_ul_first {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -69,7 +83,24 @@
   width: 25rem;
   margin-top: 2.5rem;
 }
+.lower_right_ul_first {
+  width: 20rem;
+}
+.lower_right_ul,
+.lower_right_ul_first {
+  margin-top: 0.5rem;
+}
 .mail,
 .lower_left_li {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+.sitemap {
+  font-size: 1.1rem;
+  opacity: 0.3;
+}
+.copyright {
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
 }

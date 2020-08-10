@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { FC } from 'react';
 import { animated, SpringValue } from 'react-spring';
 import styles from './accordion.module.css';
@@ -46,32 +47,44 @@ const AccordionCard: FC<AccordionCardProps> = ({
   return (
     <animated.div
       className={styles.card_parent}
+      // @ts-ignore
       style={{ width, justifyContent, backgroundImage: `url(${bgImage})` }}
       onClick={handleClick}
     >
       <animated.div
         className={styles.card_back_color}
+        // @ts-ignore
         style={{ justifyContent, backgroundColor: bgColor, display: isActive ? 'none' : 'block' }}
         onClick={handleClick}
       >
         {svgs.map((s) => {
           return (
+            // @ts-ignore
             <animated.div style={{ ...s.style, opacity }} className={styles.svg_container}>
               <s.Svg />
             </animated.div>
           );
         })}
       </animated.div>
-      <animated.h1 className={styles.h1} style={{ display: isActive ? 'block' : 'none', alignSelf, fontSize }}>
+      <animated.h1
+        className={styles.h1}
+        // @ts-ignore
+        style={{ display: isActive ? 'block' : 'none', alignSelf, fontSize }}
+      >
         {heading}
       </animated.h1>
       <animated.h1
         className={styles.h1}
+        // @ts-ignore
         style={{ display: isActive ? 'none' : 'block', opacity: 1 - Number(opacity), transform, alignSelf, fontSize }}
       >
         {heading}
       </animated.h1>
-      <animated.p className={styles.p} style={{ display: isActive ? 'block' : 'none' }}>
+      <animated.p
+        className={styles.p}
+        // @ts-ignore
+        style={{ display: isActive ? 'block' : 'none' }}
+      >
         {para}
       </animated.p>
     </animated.div>
