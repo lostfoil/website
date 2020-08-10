@@ -18,7 +18,7 @@
   align-content: center;
 }
 .h1 {
-  font-size: 3rem;
+  font-size: var(--homeH1);
   align-self: flex-start;
   margin-left: 3.5rem;
   margin-bottom: 0px;

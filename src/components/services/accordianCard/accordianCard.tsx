@@ -1,17 +1,27 @@
-import React from "react";
-import { animated } from "react-spring";
-import styles from "./accordion.module.css";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { FC } from 'react';
+import { animated, SpringValue } from 'react-spring';
+import styles from './accordion.module.css';
 
-interface svg {
+interface Svg {
   Svg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   style: React.CSSProperties;
 }
 
-interface Accordion {
-  props: React.CSSProperties;
+interface Props {
+  width: SpringValue<string>;
+  alignSelf: SpringValue<string>;
+  justifyContent: SpringValue<string>;
+  fontSize: SpringValue<string>;
+  transform: SpringValue<string>;
+  opacity: SpringValue<number>;
+}
+
+interface AccordionCardProps {
+  props: Props;
   heading: string;
   para: string;
-  svgs: svg[];
+  svgs: Svg[];
   changeActive: React.Dispatch<React.SetStateAction<number>>;
   number: number;
   isActive: boolean;
@@ -19,9 +29,9 @@ interface Accordion {
   bgColor: string;
 }
 
-const AccordionCard = ({
+const AccordionCard: FC<AccordionCardProps> = ({
   isActive,
-  props,
+  props: { width, justifyContent, alignSelf, opacity, fontSize, transform },
   heading,
   para,
   svgs,
@@ -29,7 +39,7 @@ const AccordionCard = ({
   number,
   bgImage,
   bgColor,
-}: Accordion) => {
+}) => {
   const handleClick = () => {
     changeActive(number);
   };
@@ -37,28 +47,20 @@ const AccordionCard = ({
   return (
     <animated.div
       className={styles.card_parent}
-      style={{
-        width: props.width,
-        justifyContent: props.justifyContent,
-        backgroundImage: `url(${bgImage})`,
-      }}
+      // @ts-ignore
+      style={{ width, justifyContent, backgroundImage: `url(${bgImage})` }}
       onClick={handleClick}
     >
       <animated.div
         className={styles.card_back_color}
-        style={{
-          justifyContent: props.justifyContent,
-          backgroundColor: bgColor,
-          display: isActive ? "none" : "block",
-        }}
+        // @ts-ignore
+        style={{ justifyContent, backgroundColor: bgColor, display: isActive ? 'none' : 'block' }}
         onClick={handleClick}
       >
         {svgs.map((s) => {
           return (
-            <animated.div
-              style={{ ...s.style, opacity: props.opacity }}
-              className={styles.svg_container}
-            >
+            // @ts-ignore
+            <animated.div style={{ ...s.style, opacity }} className={styles.svg_container}>
               <s.Svg />
             </animated.div>
           );
@@ -66,31 +68,22 @@ const AccordionCard = ({
       </animated.div>
       <animated.h1
         className={styles.h1}
-        style={{
-          display: isActive ? "block" : "none",
-          alignSelf: props.alignSelf,
-          fontSize: props.fontSize,
-        }}
+        // @ts-ignore
+        style={{ display: isActive ? 'block' : 'none', alignSelf, fontSize }}
       >
         {heading}
       </animated.h1>
       <animated.h1
         className={styles.h1}
-        style={{
-          display: isActive ? "none" : "block",
-          opacity: 1 - Number(props.opacity),
-          transform: props.transform,
-          alignSelf: props.alignSelf,
-          fontSize: props.fontSize,
-        }}
+        // @ts-ignore
+        style={{ display: isActive ? 'none' : 'block', opacity: 1 - Number(opacity), transform, alignSelf, fontSize }}
       >
         {heading}
       </animated.h1>
       <animated.p
         className={styles.p}
-        style={{
-          display: isActive ? "block" : "none",
-        }}
+        // @ts-ignore
+        style={{ display: isActive ? 'block' : 'none' }}
       >
         {para}
       </animated.p>
