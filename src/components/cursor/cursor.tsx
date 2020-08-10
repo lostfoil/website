@@ -1,17 +1,19 @@
-import React from "react";
-import { animated } from "react-spring";
-import styles from "./cursor.module.css";
+import React, { FC } from 'react';
+import { animated, SpringValue } from 'react-spring';
+import styles from './cursor.module.css';
 
+interface CursorProps {
+  props: {
+    xy: SpringValue<number[]>;
+  };
+}
 
-//@ts-ignore
-const Cursor = ({ props }) => {
+const Cursor: FC<CursorProps> = ({ props: { xy } }) => {
   return (
     <animated.div
       style={{
-        //@ts-ignore
-        top: props.xy.interpolate((x, y) => `calc(${y}px)`),
-        //@ts-ignore
-        left: props.xy.interpolate((x, y) => `calc(${x}px)`),
+        top: xy.interpolate((_x, y) => `calc(${y}px)`),
+        left: xy.interpolate((x) => `calc(${x}px)`),
       }}
       className={styles.cursor}
     />
