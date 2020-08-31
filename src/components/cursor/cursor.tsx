@@ -16,6 +16,7 @@ const Cursor: FC<CursorProps> = ({ props: { xy } }) => {
         left: xy.interpolate((x) => `calc(${x}px)`),
       }}
       className={styles.cursor}
+      id="cursor"
     />
   );
 };

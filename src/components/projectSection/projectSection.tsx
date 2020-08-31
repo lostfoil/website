@@ -17,7 +17,7 @@ const ProjectSection: FC = () => {
           <hr className={styles.hr} />
         </div>
       </div>
-      {projectCardData.map((card_data, index) => {
+      {projectCardData.map((card_data, _) => {
         return (
           <ProjectCard
             color={card_data.color}
@@ -25,6 +25,10 @@ const ProjectSection: FC = () => {
             lefty={card_data.lefty}
             img={card_data.img}
             para={card_data.para}
+            letter={card_data.letter}
+            letterBG={card_data.letterBG}
+            key="heading"
+            index={_}
           />
         );
       })}
