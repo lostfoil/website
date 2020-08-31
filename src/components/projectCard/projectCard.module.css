@@ -51,10 +51,35 @@
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 3%;
+  overflow: hidden;
 }
 .card_left {
   left: 20rem;
 }
 .card_right {
   right: 20rem;
+}
+.animated_back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.animated_letter {
+  font-size: 15rem;
+  display: inline-block;
+  filter: url(#myfilter);
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  margin: 0px;
+  padding: 0px;
+  color: transparent;
 }

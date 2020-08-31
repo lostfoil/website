@@ -11,6 +11,8 @@ const projectCardData = [
     color: '#6C91D8',
     img: project1,
     lefty: true,
+    letter: 'B',
+    letterBG: project2,
   },
   {
     heading: 'Cardz',
@@ -19,6 +21,8 @@ const projectCardData = [
     color: '#FC6C4E',
     img: project2,
     lefty: false,
+    letter: 'C',
+    letterBG: project3,
   },
   {
     heading: 'Travel',
@@ -27,6 +31,8 @@ const projectCardData = [
     color: '#502FFF',
     img: project3,
     lefty: true,
+    letter: 'T',
+    letterBG: project4,
   },
   {
     heading: 'Crowdfunding',
@@ -34,6 +40,8 @@ const projectCardData = [
     color: '#3BB273',
     img: project4,
     lefty: false,
+    letter: 'C',
+    letterBG: project1,
   },
 ];
 export default projectCardData;
