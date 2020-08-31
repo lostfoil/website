@@ -116,7 +116,7 @@ const Services: FC = () => {
       opacity: active === i ? 0 : 1,
     }))
   );
-  // console.log(springs);
+
   return (
     <div className={styles.services_parent}>
       <h1 className={styles.h1}>Services</h1>

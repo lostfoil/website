@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef, useCallback } from 'react';
 import { useSpring, animated, config } from 'react-spring';
 import styles from './hero.module.css';
 
@@ -20,6 +20,7 @@ const trans5: Trans = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 const trans6: Trans = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 
 const Hero: FC = () => {
+  const ref = useRef(document.createElement('div'));
   const [{ xy }, set] = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 10, tension: 550, friction: 140 },
@@ -48,11 +49,35 @@ const Hero: FC = () => {
     config: config.slow,
   });
 
+  const [{ offset }, setOffset] = useSpring(() => ({ offset: 0 }));
+
+  const calcParallax = (o: number) => `translateY(${o * 0.3}px)`;
+
+  const handleScroll = useCallback(() => {
+    const posY = ref.current.getBoundingClientRect().top;
+    const tmpOffset = window.pageYOffset - posY;
+    setOffset({ offset: tmpOffset });
+  }, [setOffset]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
   return (
-    <div className={styles.hero_parent} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-      <animated.div className={styles.headings} style={headingTop}>
+    <div className={styles.hero_parent} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })} ref={ref}>
+      <animated.div
+        className={styles.headings}
+        style={{
+          ...headingTop,
+        }}
+      >
         <animated.div style={{ transform: xy.interpolate(trans1) }} className={styles.triangle_left}>
-          <TriangleLeft className={styles.hero_svgs} />
+          <animated.div style={{ transform: offset.interpolate(calcParallax) }}>
+            <TriangleLeft className={styles.hero_svgs} />
+          </animated.div>
         </animated.div>
 
         <animated.div
@@ -61,25 +86,35 @@ const Hero: FC = () => {
           }}
           className={styles.triangle_right}
         >
-          <TriangleRight className={styles.hero_svgs} />
+          <animated.div style={{ transform: offset.interpolate(calcParallax) }}>
+            <TriangleRight className={styles.hero_svgs} />
+          </animated.div>
         </animated.div>
 
         <animated.div style={{ transform: xy.interpolate(trans3) }} className={styles.cube_left}>
-          <CubeLeft className={styles.hero_svgs} />
+          <animated.div style={{ transform: offset.interpolate(calcParallax) }}>
+            <CubeLeft className={styles.hero_svgs} />
+          </animated.div>
         </animated.div>
 
         <animated.div style={{ left: dottedLoad.left, transform: xy.interpolate(trans4) }} className={styles.dotted}>
           <animated.div style={{ transform: dottedLoad.transform }}>
-            <Dotted className={styles.hero_svgs} />
+            <animated.div style={{ transform: offset.interpolate(calcParallax) }}>
+              <Dotted className={styles.hero_svgs} />
+            </animated.div>
           </animated.div>
         </animated.div>
 
         <animated.div style={{ transform: xy.interpolate(trans5) }} className={styles.cube_right}>
-          <CubeRight className={styles.hero_svgs} />
+          <animated.div style={{ transform: offset.interpolate(calcParallax) }}>
+            <CubeRight className={styles.hero_svgs} />
+          </animated.div>
         </animated.div>
 
         <animated.div style={{ transform: xy.interpolate(trans6) }} className={styles.cube_left_below}>
-          <CubeLeft className={styles.hero_svgs} />
+          <animated.div style={{ transform: offset.interpolate(calcParallax) }}>
+            <CubeLeft className={styles.hero_svgs} />
+          </animated.div>
         </animated.div>
 
         <h1 className={styles.h1}>
