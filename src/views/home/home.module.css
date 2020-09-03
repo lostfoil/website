@@ -3,3 +3,25 @@
   z-index: 2;
   overflow: hidden;
 }
+.home_cube {
+  position: absolute;
+  top: 89rem;
+  right: 0px;
+  width: 7rem;
+  height: auto;
+}
+.home_cube path {
+  fill-opacity: 0.4;
+}
+.dotted {
+  position: absolute;
+  top: 160rem;
+  transform: rotate(90deg);
+  width: 35rem;
+  right: -15rem;
+  height: auto;
+  right: px;
+}
+.dotted path {
+  fill-opacity: 0.7;
+}

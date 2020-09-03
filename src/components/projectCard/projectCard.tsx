@@ -1,5 +1,8 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/no-this-in-sfc */
+/* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 
 import styles from './projectCard.module.css';
@@ -42,28 +45,69 @@ const ProjectCard: FC<ProjectCardProps> = ({
     o: 0,
   }));
 
+  const [{ xTiltyTilt }, setTilt] = useSpring(() => ({
+    xTiltyTilt: [0, 0],
+  }));
+
   const disableCursor = () => {
     const cursor = document.getElementById('cursor');
-    if (cursor?.style?.visibility) cursor.style.visibility = 'hidden';
+    if (cursor?.style) cursor.style.visibility = 'hidden';
 
     setOpacity({ o: 1 });
   };
 
   const enableCursor = () => {
     const cursor = document.getElementById('cursor');
-    if (cursor?.style?.visibility) cursor.style.visibility = 'visible';
+    if (cursor?.style) cursor.style.visibility = 'visible';
 
     setOpacity({ o: 0 });
+
+    setTilt({
+      xTiltyTilt: [0, 0],
+    });
+  };
+
+  let counter = 0;
+  const updateRate = 10;
+
+  const isTimeToUpdate = () => {
+    return counter++ % updateRate === 0;
+  };
+
+  const mouse = {
+    _x: 0,
+    _y: 0,
+    x: 0,
+    y: 0,
+    updatePosition(event: React.MouseEvent) {
+      const e = event || window.event;
+      this.x = e.clientX - this._x;
+      this.y = (e.clientY - this._y) * -1;
+    },
+    setOrigin(e: HTMLElement) {
+      this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+      this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+    },
+  };
+
+  const tilt = (event: React.MouseEvent) => {
+    const box = document.getElementsByClassName('bounding_box')[index] as HTMLElement;
+    mouse.updatePosition(event);
+    setTilt({ xTiltyTilt: [mouse.y / box.offsetHeight / 2, mouse.x / box.offsetWidth / 2] });
   };
 
   const updateDisplay = (event: React.MouseEvent) => {
-    const box = document.getElementsByClassName('bounding_box')[index];
+    const box = document.getElementsByClassName('bounding_box')[index] as HTMLElement;
     set({
       xy: [
         event.pageX - box?.getBoundingClientRect()?.left - window.scrollX - 100,
         event.pageY - box?.getBoundingClientRect()?.top - window.scrollY - 170,
       ],
     });
+
+    if (isTimeToUpdate()) {
+      tilt(event);
+    }
   };
 
   const calcBackGroundPos = (x: number, y: number) => {
@@ -77,15 +121,38 @@ const ProjectCard: FC<ProjectCardProps> = ({
     return `${y}px`;
   };
 
+  const performTilt = (x: number, y: number) => {
+    return `rotateX(${x}deg) rotateY(${y}deg)`;
+  };
+
+  useEffect(() => {
+    const box = document.getElementsByClassName('bounding_box')[index] as HTMLElement;
+    const update = () => {
+      mouse.setOrigin(box);
+    };
+    window.addEventListener('resize', update);
+    mouse.setOrigin(box);
+    return () => {
+      window.removeEventListener('resize', update);
+    };
+  }, [index, mouse]);
+
   return (
     <div className={styles.card_container}>
       <div className={lefty ? styles.descriptor_left : styles.descriptor_right} style={{ backgroundColor: color }}>
         <h2 className={styles.h1}>{heading}</h2>
         <p className={styles.p}>{para}</p>
       </div>
-      <div
+      <animated.div
         className={lefty ? `${styles.card_left} bounding_box` : `${styles.card_right} bounding_box`}
-        style={{ ...borderOptions, backgroundImage: `url(${img})` }}
+        // @ts-ignore
+        style={{
+          ...borderOptions,
+          // @ts-ignore
+          backgroundImage: `url(${img})`,
+          // @ts-ignore
+          transform: xTiltyTilt.interpolate(performTilt),
+        }}
         onMouseMove={updateDisplay}
         onMouseEnter={disableCursor}
         onMouseLeave={enableCursor}
@@ -117,15 +184,14 @@ const ProjectCard: FC<ProjectCardProps> = ({
             </filter>
             <animate
               xlinkHref="#turbulance"
-              id="anim-dialiate"
               attributeName="baseFrequency"
-              values="0.01;0.1;0.01"
+              values="0.04;0.08;0.04"
               dur="10s"
               repeatCount="indefinite"
             />
           </defs>
         </svg>
-      </div>
+      </animated.div>
     </div>
   );
 };
