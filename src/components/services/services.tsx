@@ -7,7 +7,7 @@ import AccordionCard from './accordianCard/accordianCard';
 import cards from '../../assets/data/servicesCardData';
 
 const Services: FC = () => {
-  const [active, changeActive] = useState(1);
+  const [active, changeActive] = useState(0);
 
   const springs = useSprings(
     cards.length,
