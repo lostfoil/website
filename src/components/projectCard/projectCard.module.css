@@ -7,6 +7,7 @@
   align-content: center;
   align-items: center;
   position: relative;
+  perspective: 0.5rem;
 }
 .descriptor_left,
 .descriptor_right {
@@ -47,17 +48,23 @@
   width: 37rem;
   height: 21rem;
   position: absolute;
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 3%;
   overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 .card_left {
   left: 20rem;
 }
 .card_right {
   right: 20rem;
+}
+.card_left:hover,
+.card_right:hover {
+  background-size: 115%;
 }
 .animated_back {
   height: 100%;
