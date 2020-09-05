@@ -1,4 +1,4 @@
-const navItemsArray = [
+export const navItemsArray = [
   {
     name: 'ABOUT',
   },
@@ -12,4 +12,18 @@ const navItemsArray = [
     name: 'SERVICES',
   },
 ];
-export default navItemsArray;
+
+export const navSocialArray = [
+  {
+    name: 'LinkedIn',
+  },
+  {
+    name: 'Instagram',
+  },
+  {
+    name: 'Dribbble',
+  },
+  {
+    name: 'Behance',
+  },
+];

@@ -7,7 +7,7 @@ import styles from './nav.module.css';
 
 import { ReactComponent as Logo } from '../../assets/svgs/logo.svg';
 
-import navItemsArray from '../../assets/data/navData';
+import { navItemsArray, navSocialArray } from '../../assets/data/navData';
 
 interface NavProps {
   setCursor: SpringStartFn<{
@@ -41,6 +41,12 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
     ref: navTrailRef,
   }));
 
+  const socialTrailRef = useRef() as RefObject<SpringHandle<UnknownProps>>;
+  const [socialTrail, setSocialTrail] = useTrail(navSocialArray.length + 4, () => ({
+    x: [-20],
+    ref: socialTrailRef,
+  }));
+
   const changeCursor = (currentRef: React.MutableRefObject<HTMLLabelElement>) => {
     const width = currentRef.current.clientWidth;
     const height = currentRef.current.clientHeight;
@@ -70,16 +76,21 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
   };
 
   const toggleNav = () => {
-    changeIsOpen(!isOpen);
     // @ts-ignore
     setTrail({ x: [isOpen ? -20 : 0] });
+    // @ts-ignore
+    setSocialTrail({ x: [isOpen ? -20 : 0] });
+    changeIsOpen(!isOpen);
   };
 
-  useChain(isOpen ? [openPropsRef, navTrailRef] : [navTrailRef, openPropsRef], [0, 0.5]);
+  useChain(isOpen ? [openPropsRef, navTrailRef, socialTrailRef] : [socialTrailRef, navTrailRef, openPropsRef], [
+    0,
+    0.5,
+    0.5,
+  ]);
 
   return (
     <nav className={styles.nav_parent}>
-      <Logo className={styles.logo} />
       <div className={styles.nav_left}>
         <input
           type="checkbox"
@@ -101,6 +112,7 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
           <hr className={styles.burger_hr_bottom} />
         </label>
         <animated.div className={styles.nav_page} style={openProps}>
+          <Logo className={styles.logo} />
           <label
             htmlFor="burger-but"
             ref={labelCloseRef}
@@ -114,7 +126,60 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
             </span>
           </label>
           <div className={styles.nav_upper}>
-            <div className={styles.nav_left} />
+            <div className={styles.nav_page_left}>
+              <div className={styles.social_container}>
+                <ul className={styles.social_ul}>
+                  <animated.h2
+                    style={{
+                      left:
+                        // @ts-ignore
+                        socialTrail[0].x.interpolate((x: number) => `${x}rem`),
+                    }}
+                    className={styles.social_h2}
+                  >
+                    Social
+                  </animated.h2>
+                  {
+                    // @ts-ignore
+                    navSocialArray.map((nav, index) => {
+                      return (
+                        <animated.li
+                          className={styles.social_ul_li}
+                          style={{
+                            left:
+                              // @ts-ignore
+                              socialTrail[index + 1].x.interpolate((x: number) => `${x}rem`),
+                          }}
+                        >
+                          {nav.name}
+                        </animated.li>
+                      );
+                    })
+                  }
+                </ul>
+                <animated.hr
+                  style={{
+                    opacity:
+                      // @ts-ignore
+                      socialTrail[navSocialArray.length].x.interpolate((x: number) => `${x + 0.4}`),
+                    left:
+                      // @ts-ignore
+                      socialTrail[navSocialArray.length].x.interpolate((x: number) => `${x}rem`),
+                  }}
+                  className={styles.social_hr}
+                />
+                <animated.h3
+                  style={{
+                    left:
+                      // @ts-ignore
+                      socialTrail[navSocialArray.length + 1].x.interpolate((x: number) => `${x}rem`),
+                  }}
+                  className={styles.social_h3}
+                >
+                  Get in touch
+                </animated.h3>
+              </div>
+            </div>
             <ul className={styles.nav_right_ul}>
               {
                 // @ts-ignore

@@ -9,10 +9,12 @@ import Footer from '../../components/footer/Footer';
 import ProjectSection from '../../components/projectSection/projectSection';
 import { ReactComponent as CubeRight } from '../../assets/svgs/hero-cube-right.svg';
 import { ReactComponent as Dotted } from '../../assets/svgs/hero-dotted.svg';
+import { ReactComponent as Logo } from '../../assets/svgs/logo.svg';
 
 const Home: FC = () => {
   return (
     <div className={styles.home}>
+      <Logo className={styles.logo} />
       <ConcentricCircles
         color="#502FFF"
         size1={20}
