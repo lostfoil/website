@@ -17,7 +17,7 @@ const Home: FC = () => {
         color="#502FFF"
         size1={20}
         size2={10}
-        styles={{ top: '5rem', left: '-10rem', transform: `rotate(180deg)` }}
+        styles={{ top: '9rem', left: '-10rem', transform: `rotate(180deg)` }}
       />
       <ConcentricCircles
         color="#FEB600"
