@@ -100,8 +100,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
     const box = document.getElementsByClassName('bounding_box')[index] as HTMLElement;
     set({
       xy: [
-        event.pageX - box?.getBoundingClientRect()?.left - window.scrollX - 100,
-        event.pageY - box?.getBoundingClientRect()?.top - window.scrollY - 170,
+        event.pageX - box?.getBoundingClientRect()?.left - window.scrollX - 200,
+        event.pageY - box?.getBoundingClientRect()?.top - window.scrollY - 350,
       ],
     });
 

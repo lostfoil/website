@@ -25,8 +25,6 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
   const burgerRef = useRef(null);
   const labelRef = useRef(document.createElement('label'));
 
-  const labelCloseRef = useRef(document.createElement('label'));
-
   const [isOpen, changeIsOpen] = useState(false);
 
   const openPropsRef = useRef() as RefObject<SpringHandle<UnknownProps>>;
@@ -71,7 +69,7 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
   const revertCursor = () => {
     const app = document.getElementById('app') as HTMLElement;
 
-    setSize({ height: '1rem', width: '1rem', marginTop: '-0.5rem', marginLeft: '-0.5rem' });
+    setSize({ height: '0.5rem', width: '0.5rem', marginTop: '-0.25rem', marginLeft: '-0.25rem' });
     app.onmousemove = ({ clientX: x, clientY: y }) => setCursor({ xy: [x, y] });
   };
 
@@ -90,114 +88,100 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
   ]);
 
   return (
-    <nav className={styles.nav_parent}>
-      <div className={styles.nav_left}>
-        <input
-          type="checkbox"
-          value="false"
-          className={styles.burger}
-          id="burger-but"
-          ref={burgerRef}
-          onChange={toggleNav}
-        />
-        <label
-          htmlFor="burger-but"
-          ref={labelRef}
-          className={styles.burger_hr_container}
-          onMouseEnter={() => changeCursor(labelRef)}
-          onMouseLeave={revertCursor}
-        >
-          <hr className={styles.burger_hr_top} />
-          {/* <hr className={styles.burger_hr_middle} /> */}
-          <hr className={styles.burger_hr_bottom} />
-        </label>
-        <animated.div className={styles.nav_page} style={openProps}>
-          <Logo className={styles.logo} />
-          <label
-            htmlFor="burger-but"
-            ref={labelCloseRef}
-            onMouseEnter={() => changeCursor(labelCloseRef)}
-            onMouseLeave={revertCursor}
-            className={styles.burger_page_hr_container}
-          >
-            <span className={styles.inside_span}>
-              <hr className={styles.burger_page_hr_top} />
-              <hr className={styles.burger_page_hr_bottom} />
-            </span>
-          </label>
-          <div className={styles.nav_upper}>
-            <div className={styles.nav_page_left}>
-              <div className={styles.social_container}>
-                <ul className={styles.social_ul}>
-                  <animated.h2
-                    style={{
-                      left:
-                        // @ts-ignore
-                        socialTrail[0].x.interpolate((x: number) => `${x}rem`),
-                    }}
-                    className={styles.social_h2}
-                  >
-                    Social
-                  </animated.h2>
-                  {
-                    // @ts-ignore
-                    navSocialArray.map((nav, index) => {
-                      return (
-                        <animated.li
-                          className={styles.social_ul_li}
-                          style={{
-                            left:
-                              // @ts-ignore
-                              socialTrail[index + 1].x.interpolate((x: number) => `${x}rem`),
-                          }}
-                        >
-                          {nav.name}
-                        </animated.li>
-                      );
-                    })
-                  }
-                </ul>
-                <animated.hr
-                  style={{
-                    opacity:
-                      // @ts-ignore
-                      socialTrail[navSocialArray.length].x.interpolate((x: number) => `${x + 0.4}`),
-                    left:
-                      // @ts-ignore
-                      socialTrail[navSocialArray.length].x.interpolate((x: number) => `${x}rem`),
-                  }}
-                  className={styles.social_hr}
-                />
-                <animated.h3
+    <nav className={styles.nav_left}>
+      <input
+        type="checkbox"
+        value="false"
+        className={styles.burger}
+        id="burger-but"
+        ref={burgerRef}
+        onChange={toggleNav}
+      />
+      <label
+        htmlFor="burger-but"
+        ref={labelRef}
+        className={styles.burger_hr_container}
+        onMouseEnter={() => changeCursor(labelRef)}
+        onMouseLeave={revertCursor}
+      >
+        <hr className={styles.burger_hr_top} />
+        {/* <hr className={styles.burger_hr_middle} /> */}
+        <hr className={styles.burger_hr_bottom} />
+      </label>
+      <animated.div className={styles.nav_page} style={openProps}>
+        <Logo className={styles.logo} />
+        <div className={styles.nav_upper}>
+          <div className={styles.nav_page_left}>
+            <div className={styles.social_container}>
+              <ul className={styles.social_ul}>
+                <animated.h2
                   style={{
                     left:
                       // @ts-ignore
-                      socialTrail[navSocialArray.length + 1].x.interpolate((x: number) => `${x}rem`),
+                      socialTrail[0].x.interpolate((x: number) => `${x}rem`),
                   }}
-                  className={styles.social_h3}
+                  className={styles.social_h2}
                 >
-                  Get in touch
-                </animated.h3>
-              </div>
+                  Social
+                </animated.h2>
+                {
+                  // @ts-ignore
+                  navSocialArray.map((nav, index) => {
+                    return (
+                      <animated.li
+                        className={styles.social_ul_li}
+                        style={{
+                          left:
+                            // @ts-ignore
+                            socialTrail[index + 1].x.interpolate((x: number) => `${x}rem`),
+                        }}
+                      >
+                        {nav.name}
+                      </animated.li>
+                    );
+                  })
+                }
+              </ul>
+              <animated.hr
+                style={{
+                  opacity:
+                    // @ts-ignore
+                    socialTrail[navSocialArray.length].x.interpolate((x: number) => `${x + 0.4}`),
+                  left:
+                    // @ts-ignore
+                    socialTrail[navSocialArray.length].x.interpolate((x: number) => `${x}rem`),
+                }}
+                className={styles.social_hr}
+              />
+              <animated.h3
+                style={{
+                  left:
+                    // @ts-ignore
+                    socialTrail[navSocialArray.length + 1].x.interpolate((x: number) => `${x}rem`),
+                }}
+                className={styles.social_h3}
+              >
+                Get in touch
+              </animated.h3>
             </div>
-            <ul className={styles.nav_right_ul}>
-              {
-                // @ts-ignore
-                navTrail.map((props, index) => {
-                  return (
-                    <animated.li
-                      className={styles.nav_ul_li}
-                      style={{ right: props.x.interpolate((x: number) => `${x}rem`) }}
-                    >
-                      {navItemsArray[index].name}
-                    </animated.li>
-                  );
-                })
-              }
-            </ul>
           </div>
-        </animated.div>
-      </div>
+          <ul className={styles.nav_right_ul}>
+            {
+              // @ts-ignore
+              navTrail.map((props, index) => {
+                return (
+                  <animated.li
+                    className={styles.nav_ul_li}
+                    style={{ right: props.x.interpolate((x: number) => `${x}rem`) }}
+                  >
+                    {navItemsArray[index].name}
+                  </animated.li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </animated.div>
     </nav>
   );
 };

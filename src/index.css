@@ -12,8 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 :root {
-  --homeH1: 2.5rem;
-  --footerP: 1.5rem;
+  --heading: 1.75rem;
+  --head_para: 0.6875rem;
+  --sub_heading: 1rem;
+  --margin: 2.185rem;
+  --line_height: 1.375rem;
+  --section_space: 8.75rem;
+  --para: 0.5625rem;
+  --footerP: 0.5625rem;
+  --heading_spacing: 0.07875rem;
 }
 a {
   text-decoration: none;
@@ -40,16 +47,16 @@ a {
 
 @media (max-width: 1920px) {
   html {
-    font-size: 24px;
+    font-size: 32px;
   }
 }
 @media (max-width: 1600px) {
   html {
-    font-size: 19px;
+    font-size: 26.25px;
   }
 }
 @media (max-width: 1366px) {
   html {
-    font-size: 16px;
+    font-size: 20.5px;
   }
 }

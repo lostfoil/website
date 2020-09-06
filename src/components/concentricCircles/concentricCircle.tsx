@@ -10,12 +10,12 @@ type ConcentricCirclesProps = {
 
 const ConcentricCircles: FC<ConcentricCirclesProps> = ({ size1, size2, color, styles }) => {
   const c1Props = useSpring({
-    from: { strokeDashoffset: size1 * 60 },
+    from: { strokeDashoffset: size1 * 80 },
     strokeDashoffset: 0,
     config: { duration: 3500 },
   });
   const c2Props = useSpring({
-    from: { strokeDashoffset: size2 * 60 },
+    from: { strokeDashoffset: size2 * 80 },
     strokeDashoffset: 0,
     config: { duration: 3500 },
   });
@@ -37,7 +37,7 @@ const ConcentricCircles: FC<ConcentricCirclesProps> = ({ size1, size2, color, st
         stroke-width="0.05rem"
         fill="transparent"
         style={{
-          strokeDasharray: `${size1 * 60}`,
+          strokeDasharray: `${size1 * 80}`,
           strokeDashoffset: c1Props.strokeDashoffset,
         }}
       />
@@ -49,7 +49,7 @@ const ConcentricCircles: FC<ConcentricCirclesProps> = ({ size1, size2, color, st
         stroke-width="0.05rem"
         fill="transparent"
         style={{
-          strokeDasharray: `${size2 * 60}`,
+          strokeDasharray: `${size2 * 80}`,
           strokeDashoffset: c2Props.strokeDashoffset,
         }}
       />

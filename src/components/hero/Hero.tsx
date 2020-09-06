@@ -38,7 +38,7 @@ const Hero: FC = () => {
       left: '80rem',
     },
     transform: `rotate(0deg)`,
-    left: '-8rem',
+    left: '-1rem',
     config: config.slow,
   });
 
@@ -123,8 +123,8 @@ const Hero: FC = () => {
           to make you shine.
         </h1>
         <p className={styles.p}>
-          Providing solutions to all your web needs - from designing your website to making it live, we have it all
-          covered.
+          Providing solutions to all your web needs - from designing
+          <br /> your website to making it live, we have it all covered.
         </p>
       </animated.div>
       <animated.div

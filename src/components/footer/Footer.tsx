@@ -27,9 +27,9 @@ const Footer: FC = () => {
             IIITM Campus, Gwalior, M.P
           </p>
           <ul className={styles.lower_left_ul}>
-            <li className={styles.lower_left_li}>Privacy Policy</li>
-            <li className={styles.lower_left_li}>Disclaimer</li>
-            <li className={styles.lower_left_li}>Terms & Conditions</li>
+            <li className={styles.lower_left_li_diff}>Privacy Policy</li>
+            <li className={styles.lower_left_li_diff}>Disclaimer</li>
+            <li className={styles.lower_left_li_diff}>Terms & Conditions</li>
           </ul>
         </span>
         <span className={styles.lower_right}>

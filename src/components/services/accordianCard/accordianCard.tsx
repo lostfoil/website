@@ -15,6 +15,7 @@ interface Props {
   fontSize: SpringValue<string>;
   transform: SpringValue<string>;
   opacity: SpringValue<number>;
+  letterSpacing: SpringValue<string>;
 }
 
 interface AccordionCardProps {
@@ -31,7 +32,7 @@ interface AccordionCardProps {
 
 const AccordionCard: FC<AccordionCardProps> = ({
   isActive,
-  props: { width, justifyContent, alignSelf, opacity, fontSize, transform },
+  props: { width, justifyContent, alignSelf, opacity, fontSize, transform, letterSpacing },
   heading,
   para,
   svgs,
@@ -69,7 +70,7 @@ const AccordionCard: FC<AccordionCardProps> = ({
       <animated.h1
         className={styles.h1}
         // @ts-ignore
-        style={{ display: isActive ? 'block' : 'none', alignSelf, fontSize }}
+        style={{ display: isActive ? 'block' : 'none', alignSelf, fontSize, letterSpacing }}
       >
         {heading}
       </animated.h1>

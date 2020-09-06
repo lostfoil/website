@@ -16,28 +16,28 @@ const Home: FC = () => {
     <div className={styles.home}>
       <Logo className={styles.logo} />
       <ConcentricCircles
-        color="#502FFF"
-        size1={20}
-        size2={10}
-        styles={{ top: '9rem', left: '-10rem', transform: `rotate(180deg)` }}
+        color="rgb(80, 47, 255,0.4)"
+        size1={14.125}
+        size2={7}
+        styles={{ top: '7rem', left: '-7.5rem', transform: `rotate(180deg)` }}
       />
       <ConcentricCircles
         color="#FEB600"
-        size1={30}
-        size2={18}
-        styles={{ top: '20rem', right: '-15rem', transform: `rotate(90deg)` }}
-      />
-      <ConcentricCircles
-        color="#502FFF"
         size1={20}
         size2={10}
-        styles={{ top: '117rem', left: '-10rem', transform: `rotate(180deg)` }}
+        styles={{ top: '20rem', right: '-10rem', transform: `rotate(90deg)` }}
       />
       <ConcentricCircles
         color="rgb(80, 47, 255,0.4)"
-        size1={20}
-        size2={10}
-        styles={{ top: '190rem', left: '-10rem', transform: `rotate(180deg)` }}
+        size1={14.125}
+        size2={7}
+        styles={{ top: '93rem', left: '-7.5rem', transform: `rotate(180deg)` }}
+      />
+      <ConcentricCircles
+        color="rgb(80, 47, 255,0.4)"
+        size1={14.125}
+        size2={7}
+        styles={{ top: '157rem', left: '-7.5rem', transform: `rotate(180deg)` }}
       />
       <CubeRight className={styles.home_cube} />
       <Dotted className={styles.dotted} />
