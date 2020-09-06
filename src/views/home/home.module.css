@@ -5,9 +5,9 @@
 }
 .home_cube {
   position: absolute;
-  top: 89rem;
-  right: 0px;
-  width: 7rem;
+  top: 68.5rem;
+  right: -2rem;
+  width: 4.9375rem;
   height: auto;
 }
 .home_cube path {
@@ -15,10 +15,10 @@
 }
 .dotted {
   position: absolute;
-  top: 160rem;
+  top: 129.5rem;
   transform: rotate(90deg);
-  width: 35rem;
-  right: -15rem;
+  width: 27.8125rem;
+  right: -12.3rem;
   height: auto;
   right: px;
 }
@@ -26,8 +26,8 @@
   fill-opacity: 0.7;
 }
 .logo {
-  width: 5.5rem;
+  width: 4.0625rem;
   position: absolute;
-  top: 1.2rem;
-  left: 3rem;
+  top: 2.65625rem;
+  left: 2.1875rem;
 }

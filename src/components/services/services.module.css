@@ -7,7 +7,7 @@
   align-content: center;
   padding-bottom: 1rem;
   box-sizing: border-box;
-  margin-top: 1rem;
+  margin-top: var(--section_space);
 }
 .accordion_container {
   width: 100%;
@@ -18,19 +18,21 @@
   align-content: center;
 }
 .h1 {
-  font-size: var(--homeH1);
+  margin: 0px;
+  font-size: var(--heading);
   align-self: flex-start;
-  margin-left: 3.5rem;
-  margin-bottom: 0px;
+  margin-left: 3.90625rem;
+  letter-spacing: var(--heading_spacing);
 }
 .hr {
-  width: 12rem;
+  width: 8.4375rem;
   height: 0px;
   background-color: black;
   border: 0.03rem solid black;
   align-self: flex-start;
   padding: 0px;
   margin: 0px;
-  margin-left: 3.5rem;
-  margin-bottom: 4rem;
+  margin-left: 3.90625rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }

@@ -10,13 +10,13 @@ const cards = [
     heading: 'Web Development',
     para:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-    bgColor: '#D43556',
+    bgColor: '#478AFF',
     bgImage,
     svgs: [
       {
         Svg: Svg1,
         style: {
-          width: '5rem',
+          width: '4rem',
           marginTop: '3rem',
           marginLeft: '-2rem',
         },
@@ -24,9 +24,9 @@ const cards = [
       {
         Svg: Svg2,
         style: {
-          width: '3rem',
+          width: '3.5rem',
           marginTop: '0.5rem',
-          marginLeft: '2rem',
+          marginLeft: '1.7rem',
         },
       },
     ],
@@ -42,7 +42,7 @@ const cards = [
       {
         Svg: Svg1,
         style: {
-          width: '5rem',
+          width: '4rem',
           marginTop: '3rem',
           marginLeft: '-2rem',
         },
@@ -50,9 +50,9 @@ const cards = [
       {
         Svg: Svg2,
         style: {
-          width: '3rem',
+          width: '3.5rem',
           marginTop: '0.5rem',
-          marginLeft: '2rem',
+          marginLeft: '1.7rem',
         },
       },
     ],
@@ -69,9 +69,9 @@ const cards = [
       {
         Svg: Svg3,
         style: {
-          width: '6rem',
-          marginTop: '1rem',
-          marginLeft: '-0.5rem',
+          width: '5.5rem',
+          marginTop: '0rem',
+          marginLeft: '0rem',
         },
       },
     ],
@@ -88,7 +88,7 @@ const cards = [
         Svg: Svg4,
         style: {
           width: '5rem',
-          marginTop: '3rem',
+          marginTop: '1rem',
           marginLeft: '-1rem',
         },
       },

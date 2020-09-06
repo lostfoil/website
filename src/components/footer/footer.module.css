@@ -2,14 +2,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
   background-color: #191919;
   color: white;
+  height: 28.0625rem;
 }
 .upper {
-  width: 85%;
+  width: 87%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -22,17 +23,22 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 .h1 {
-  font-size: var(--homeH1);
+  font-size: 2.25rem;
   margin-bottom: 0px;
   align-self: flex-start;
+  letter-spacing: 0.10125rem;
+  font-weight: 800;
 }
 .p {
-  font-size: var(--footerP);
+  font-size: 1.59375rem;
   align-self: flex-start;
   margin-top: 1rem;
+  letter-spacing: 0.0715625rem;
+  font-weight: 500;
+  margin-bottom: 0px;
 }
 .p_hr {
   width: 100%;
@@ -42,11 +48,11 @@
   opacity: 0.4;
 }
 .lower {
-  width: 85%;
+  width: 87%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 14rem;
+  height: 8rem;
 }
 .lower_left,
 .lower_right,
@@ -59,17 +65,22 @@
 }
 .lower_left {
   align-self: flex-end;
+  justify-content: flex-end;
 }
 .lower_right {
   align-self: flex-start;
+  margin-top: -2rem;
 }
 .lower_right_upper {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+  align-self: flex-start;
 }
 .address {
   text-align: left;
   opacity: 0.3;
-  font-size: 0.75rem;
+  font-size: var(--para);
+  font-weight: 500;
+  letter-spacing: 0.0253125rem;
 }
 .lower_left_ul,
 .lower_right_ul,
@@ -80,27 +91,53 @@
   justify-content: space-between;
   margin: 0px;
   padding: 0px;
-  width: 25rem;
+  width: 14.5rem;
   margin-top: 2.5rem;
 }
+.lower_left_ul {
+  margin-top: 2rem;
+}
 .lower_right_ul_first {
-  width: 20rem;
 }
 .lower_right_ul,
 .lower_right_ul_first {
-  margin-top: 0.5rem;
+  margin-top: 0rem;
+  width: 20rem;
+  justify-content: flex-start;
 }
 .mail,
 .lower_left_li {
-  font-size: 0.85rem;
+  font-size: var(--para);
   opacity: 0.7;
+  font-weight: 500;
+  letter-spacing: 0.0253125rem;
+}
+.lower_left_li {
+  margin-right: 3rem;
+  width: 2rem;
+  text-align: center;
+}
+.lower_left_li_diff {
+  font-size: 0.4375rem;
+  opacity: 0.7;
+  font-weight: 500;
+  letter-spacing: 0.0196875rem;
+}
+.mail {
+  font-size: var(--para);
+  letter-spacing: 0.0253125rem;
 }
 .sitemap {
-  font-size: 1.1rem;
+  font-size: 0.75rem;
   opacity: 0.3;
+  font-weight: 500;
+  letter-spacing: 0.03375rem;
 }
 .copyright {
-  margin-top: 3rem;
-  font-size: 0.75rem;
+  font-size: var(--para);
   opacity: 0.7;
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.0253125rem;
 }

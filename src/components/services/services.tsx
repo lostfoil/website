@@ -12,11 +12,12 @@ const Services: FC = () => {
   const springs = useSprings(
     cards.length,
     cards.map((_card, i) => ({
-      width: active === i ? '50rem' : '4rem',
+      width: active === i ? '34.125rem' : '3.90625rem',
       alignSelf: active === i ? 'flex-start' : 'center',
       justifyContent: active === i ? `flex-start` : `center`,
-      fontSize: active === i ? '1.8rem' : '1rem',
+      fontSize: active === i ? '1rem' : '0.6875rem',
       transform: active === i ? `rotate(-90deg)` : `rotate(-90deg)`,
+      letterSpacing: active === i ? `0.045rem` : `0.0309375rem`,
       opacity: active === i ? 0 : 1,
     }))
   );

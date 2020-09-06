@@ -23,63 +23,73 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 33.5rem;
-  padding-top: 20rem;
+  width: 23.21875rem;
+  height: 13.96875rem;
   position: relative;
   z-index: 1;
 }
 .h1 {
-  font-size: var(--homeH1);
+  font-size: var(--heading);
+  font-weight: 800;
+  letter-spacing: var(--heading_spacing);
 }
 .p {
   width: 100%;
   opacity: 45%;
   margin-top: 0px;
+  font-size: var(--head_para);
+  color: #000000;
+  letter-spacing: 0.0309375rem;
 }
 .triangle_left {
   position: absolute;
   top: 3rem;
-  left: 2rem;
-  width: 3rem;
+  left: 6rem;
+  width: 2.5rem;
   height: auto;
+  z-index: -1;
 }
 .triangle_right {
   position: absolute;
   bottom: -4rem;
-  right: -3rem;
-  width: 3rem;
+  right: 3rem;
+  width: 2.5rem;
   height: auto;
+  z-index: -1;
 }
 .triangle_right {
   fill: #84d1dc;
 }
 .cube_left {
   position: absolute;
-  top: 3.5rem;
-  left: -14rem;
+  top: 2rem;
+  left: -5rem;
   width: 2rem;
   height: auto;
+  z-index: -1;
 }
 .dotted {
   position: absolute;
-  bottom: -7rem;
-  /* left: -8rem; */
-  width: 27rem;
+  bottom: -5.5rem;
+  width: 16.6875rem;
   height: auto;
+  z-index: -1;
 }
 .cube_right {
   position: absolute;
-  bottom: 5.5rem;
-  right: -8rem;
-  width: 2.5rem;
+  bottom: 3.5rem;
+  right: -1.5rem;
+  width: 1.59375rem;
   height: auto;
+  z-index: -1;
 }
 .cube_left_below {
   position: absolute;
-  bottom: -14rem;
-  left: 2rem;
-  width: 2rem;
+  bottom: -10rem;
+  left: 7rem;
+  width: 1.5rem;
   height: auto;
+  z-index: -1;
 }
 .cube_left_below rect {
   fill: #e4a300;

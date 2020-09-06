@@ -10,10 +10,10 @@ const App: FC = () => {
   const appRef = useRef(document.createElement('div'));
   const [props, set] = useSpring(() => ({ xy: [0, 0] }));
   const [sizeProps, setSize] = useSpring(() => ({
-    height: '1rem',
-    width: '1rem',
-    marginTop: '-0.5rem',
-    marginLeft: '-0.5rem',
+    height: '0.5rem',
+    width: '0.5rem',
+    marginTop: '-0.25rem',
+    marginLeft: '-0.25rem',
   }));
   useEffect(() => {
     appRef.current.onmousemove = ({ clientX: x, clientY: y }) => set({ xy: [x, y] });
