@@ -13,7 +13,10 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  padding-left: 3.90625rem;
+  padding-right: 3.90625rem;
+  justify-content: space-between;
+  box-sizing: border-box;
   align-items: center;
   align-content: center;
 }

@@ -24,13 +24,13 @@
 }
 .descriptor_left {
   left: 0px;
-  padding-left: 1.5rem;
+  padding-left: 2.1875rem;
   clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
   align-items: flex-start;
 }
 .descriptor_right {
   right: 0px;
-  padding-right: 1.5rem;
+  padding-right: 2.1875rem;
   clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
   align-items: flex-end;
 }
@@ -44,7 +44,7 @@
 .p {
   font-size: var(--para);
   text-align: justify;
-  width: 60%;
+  width: calc(50vw - (31.5rem / 2) - 2.1875rem - 1.25rem);
   letter-spacing: 0.0253125rem;
   line-height: var(--line_height);
 }
