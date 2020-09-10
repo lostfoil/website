@@ -13,8 +13,8 @@
   border-radius: 50%;
   cursor: pointer;
   position: fixed;
-  top: calc(3.625rem - 1.4rem);
-  right: 2.1875rem;
+  top: calc(2.1875rem - 0.4rem);
+  right: calc(2.1875rem - 1rem);
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
   z-index: 20;
