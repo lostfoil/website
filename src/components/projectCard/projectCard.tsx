@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-this-in-sfc */
 /* eslint-disable no-plusplus */
@@ -98,10 +99,12 @@ const ProjectCard: FC<ProjectCardProps> = ({
 
   const updateDisplay = (event: React.MouseEvent) => {
     const box = document.getElementsByClassName('bounding_box')[index] as HTMLElement;
+    // @ts-ignore
+    const bodyCSS = parseFloat(getComputedStyle(document.querySelector('body')!)['font-size']);
     set({
       xy: [
-        event.pageX - box?.getBoundingClientRect()?.left - window.scrollX - 200,
-        event.pageY - box?.getBoundingClientRect()?.top - window.scrollY - 350,
+        event.pageX - box?.getBoundingClientRect()?.left - window.scrollX - 6 * bodyCSS,
+        event.pageY - box?.getBoundingClientRect()?.top - window.scrollY - 11 * bodyCSS,
       ],
     });
 

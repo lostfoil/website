@@ -13,7 +13,7 @@
   border-radius: 50%;
   cursor: pointer;
   position: fixed;
-  top: calc(2.1875rem - 0.4rem);
+  top: calc(2.1875rem - 0.75rem);
   right: calc(2.1875rem - 1rem);
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
@@ -42,7 +42,7 @@
   position: fixed;
   top: 0px;
   height: 100vh;
-  background: black;
+  background: #1d1d1d;
   z-index: 15;
 }
 .nav_upper {
@@ -59,19 +59,22 @@
   margin: 0px;
   list-style: none;
   width: 25%;
-  height: 70%;
+  height: 100%;
+  padding-top: 6.6875rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-right: 5%;
+  justify-content: flex-start;
+  padding-right: calc(2.1875rem);
   box-sizing: border-box;
   position: relative;
 }
 .nav_ul_li {
   position: relative;
   color: #686868;
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.875rem;
+  letter-spacing: 0.09rem;
   text-align: right;
   cursor: pointer;
   /* transition: all 0.3s; */
@@ -84,19 +87,21 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   align-items: center;
+  padding-left: 2.1875rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .social_container {
   width: 100%;
-  height: 65%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
   align-items: flex-start;
-  overflow: hidden;
 }
 .social_ul {
   height: 100%;
@@ -109,23 +114,23 @@
   align-content: center;
   position: relative;
   justify-content: space-between;
-  overflow: hidden;
-  padding-left: 12%;
+  padding-top: 6.6875rem;
   box-sizing: border-box;
 }
 .social_ul_li {
   position: relative;
   color: #686868;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.039375rem;
+  font-weight: bold;
   text-align: right;
   cursor: pointer;
   text-align: left;
 }
 .social_h2 {
   color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 0.6875rem;
+  letter-spacing: 0.0309375rem;
   margin: 0px;
   text-align: left;
   position: relative;
@@ -138,23 +143,21 @@
   background-color: #686868;
   margin: 0px;
   align-self: flex-start;
-  margin-left: 12%;
   margin-top: 10%;
   margin-bottom: 10%;
   position: relative;
 }
 .social_h3 {
-  font-size: 0.9rem;
+  font-size: 0.625rem;
+  letter-spacing: 0.028125rem;
   color: #ffffff;
-  font-weight: 400;
   margin: 0px;
-  margin-left: 12%;
   position: relative;
 }
 .logo {
   width: 4.0625rem;
   position: absolute;
-  top: 2.65625rem;
+  top: 2.1875rem;
   left: 2.1875rem;
 }
 .logo path {

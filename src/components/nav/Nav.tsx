@@ -105,7 +105,6 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
         onMouseLeave={revertCursor}
       >
         <hr className={styles.burger_hr_top} />
-        {/* <hr className={styles.burger_hr_middle} /> */}
         <hr className={styles.burger_hr_bottom} />
       </label>
       <animated.div className={styles.nav_page} style={openProps}>
