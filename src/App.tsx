@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { useSpring } from 'react-spring';
 import styles from './App.module.css';
 
@@ -20,9 +21,13 @@ const App: FC = () => {
   }, [set]);
   return (
     <div id="app" className={styles.App} ref={appRef}>
-      <Nav setCursor={set} setSize={setSize} />
-      <Cursor props={Object.assign(props, sizeProps)} />
-      <Home />
+      <BrowserRouter>
+        <Route exact path="/">
+          <Nav setCursor={set} setSize={setSize} />
+          <Cursor props={Object.assign(props, sizeProps)} />
+          <Home />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 };

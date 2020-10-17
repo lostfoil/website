@@ -33,6 +33,19 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
     ref: openPropsRef,
   });
 
+  const BurgerPropsTopRef = useRef() as RefObject<SpringHandle<UnknownProps>>;
+  const BurgerpropsTop = useSpring({
+    backgroundColor: isOpen ? 'white' : 'black',
+    transform: isOpen ? `translateY(0.15rem) rotate(-45deg)` : `translateY(0rem) rotate(0deg)`,
+    ref: BurgerPropsTopRef,
+  });
+  const BurgerPropsBottomRef = useRef() as RefObject<SpringHandle<UnknownProps>>;
+  const BurgerpropsBottom = useSpring({
+    backgroundColor: isOpen ? 'white' : 'black',
+    transform: isOpen ? `translateY(-0.15rem) rotate(45deg)` : `translateY(0rem) rotate(0deg)`,
+    ref: BurgerPropsBottomRef,
+  });
+
   const navTrailRef = useRef() as RefObject<SpringHandle<UnknownProps>>;
   const [navTrail, setTrail] = useTrail(navItemsArray.length, () => ({
     x: [-20],
@@ -81,11 +94,12 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
     changeIsOpen(!isOpen);
   };
 
-  useChain(isOpen ? [openPropsRef, navTrailRef, socialTrailRef] : [socialTrailRef, navTrailRef, openPropsRef], [
-    0,
-    0.5,
-    0.5,
-  ]);
+  useChain(
+    isOpen
+      ? [openPropsRef, BurgerPropsBottomRef, BurgerPropsTopRef, navTrailRef, socialTrailRef]
+      : [socialTrailRef, navTrailRef, BurgerPropsTopRef, BurgerPropsBottomRef, openPropsRef],
+    isOpen ? [0, 0, 0, 0.5, 0.5] : [0, 0, 0.5, 0.5, 0.5]
+  );
 
   return (
     <nav className={styles.nav_left}>
@@ -104,8 +118,16 @@ const Nav: FC<NavProps> = ({ setCursor, setSize }) => {
         onMouseEnter={() => changeCursor(labelRef)}
         onMouseLeave={revertCursor}
       >
-        <hr className={styles.burger_hr_top} />
-        <hr className={styles.burger_hr_bottom} />
+        <animated.hr
+          className={styles.burger_hr_top}
+          // @ts-ignore
+          style={BurgerpropsTop}
+        />
+        <animated.hr
+          className={styles.burger_hr_bottom}
+          // @ts-ignore
+          style={BurgerpropsBottom}
+        />
       </label>
       <animated.div className={styles.nav_page} style={openProps}>
         <Logo className={styles.logo} />
