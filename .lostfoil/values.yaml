@@ -1,0 +1,17 @@
+image:
+  repository: ghcr.io/lostfoil/website
+
+imagePullSecrets:
+  - name: regcred
+nameOverride: 'website'
+
+imageCredentials:
+  enabled: true
+
+ingressRoute:
+  enabled: true
+  routes:
+    - rule: Host(`beta.lostfoil.com`)
+  tls:
+    domains:
+      - main: beta.lostfoil.com
